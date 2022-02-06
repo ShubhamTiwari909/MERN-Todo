@@ -13,8 +13,8 @@ function FullStackMysql() {
   const [search, setSearch] = useState("");
   const [displayUpdateForm, setDisplayUpdateForm] = useState(false);
 
-  const urlGet = "/api/";
-  const urlPost = "/api/post";
+  const urlGet = "https://mern-todo909.herokuapp.com/api/";
+  const urlPost = "https://mern-todo909.herokuapp.com/api/post";
 
   const containerClasses = displayUpdateForm ? "grid lg:grid-cols-2 sm:grid-cols-1 lg:place-content-center md:place-content-center sm:place-content-center h-96"
                               : "grid lg:grid-cols-1 sm:grid-cols-1 lg:place-content-center md:place-content-center sm:place-content-center h-96"
@@ -58,13 +58,13 @@ function FullStackMysql() {
   //delete task
   const deleteTask = (taskid) => {
 
-    axios.delete(`/api/delete/${taskid}`)
+    axios.delete(`https://mern-todo909.herokuapp.com/api/delete/${taskid}`)
       .then(response => {
         console.log("Delete Successfully");
       }).catch((error) => {
         console.log(error);
       });
-    window.location.href += "/api/";
+    window.location.href += "https://mern-todo909.herokuapp.com/api/";
     window.location.reload();
   }
 
@@ -77,13 +77,13 @@ function FullStackMysql() {
     console.log(updateId)
   }
   const updateList = () => {
-    axios.put("/api/update", { updateId: updateId, task: updateTask })
+    axios.put("https://mern-todo909.herokuapp.com/api/update", { updateId: updateId, task: updateTask })
       .then(response => {
         console.log("Updated Successfully");
       }).catch((error) => {
         console.log(error);
       });
-    window.location.href += "/api/";
+    window.location.href += "https://mern-todo909.herokuapp.com/api/";
     window.location.reload();
   }
 
