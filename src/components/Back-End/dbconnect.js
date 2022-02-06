@@ -20,7 +20,7 @@ const pool = mysql.createPool({
 
 
 //get method to get all data
-app.get('', (req, res) => {
+app.get('/api/', (req, res) => {
     pool.getConnection((err, connection) => {
         if (err) throw err
         connection.query("SELECT * FROM Todo", (err, rows) => {
@@ -35,7 +35,7 @@ app.get('', (req, res) => {
 
 
 //get method to get data with an id
-app.get('/:id', (req, res) => {
+app.get('/api/:id', (req, res) => {
     pool.getConnection((err, connection) => {
         if (err) throw err
         connection.query("SELECT * FROM Todo WHERE id = ?" , [req.params.id] , (err, rows) => {
@@ -47,7 +47,7 @@ app.get('/:id', (req, res) => {
 })
 
 //post method to add data with
-app.post('/post', (req, res) => {
+app.post('/api/post', (req, res) => {
     pool.getConnection((err, connection) => {
         if (err) throw err
 
@@ -62,7 +62,7 @@ app.post('/post', (req, res) => {
 
 
 //delete method to get data with an id
-app.delete('/delete/:id', (req, res) => {
+app.delete('/api/delete/:id', (req, res) => {
     pool.getConnection((err, connection) => {
         if (err) throw err
 
@@ -78,7 +78,7 @@ app.delete('/delete/:id', (req, res) => {
 
 
 //update method to get data with an id
-app.put('/update', (req, res) => {
+app.put('/api/update', (req, res) => {
     pool.getConnection((err, connection) => {
         if (err) throw err
         let updateId = req.body.updateId;
